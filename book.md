@@ -1,5 +1,18 @@
 # Javascript Book
 
+### guide
+console.log("Hello World")
+let message="Hello World"
+console.log(message)
+let {log} = console
+log(message)
+let log2 = console.log.bind(console)
+log2(message)
+
+let myconsole={
+    log:function(msg) {console.log(msg)}
+}
+myconsole.log(message)
 
 ### other
 #### git
@@ -86,16 +99,6 @@ Example is conditional returns (optional types)
 There are auto generators for documentation
 
 ### React
-usecontext
-usememo
-useeffect
-usestate
-custom hooks
-router
-react-icons
-
-craco react
-styled components
 
 ### HTTP
 #### topics
