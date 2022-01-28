@@ -19,19 +19,23 @@ log:function(msg) {console.log(msg)}
 myconsole.log(message)
 ```
 
-console.log also print undefined.
-all javascript functions return something.
-they will return undefined if nothing is specified to be returned;
-it happens that the console also logs return values.
-which is why undefined also shows
+console.log also prints undefined.
+All javascript functions return something.
+They will return undefined if nothing is specified to be returned;
+It happens that the console also logs return values.
+Which is why undefined also shows.
 
-if you create a log which returns something, that will show instead.
-`myconsole.log2=function(msg) {console.log(msg); return 42}; myconsole.log2(message)`
+If you create a log which returns something, that will show instead.
+```
+myconsole.log2=function(msg) {console.log(msg); return 42}; 
+myconsole.log2(message)```
 now 42 shows in the console.
-this means you could log to the console without console.log, by returning a value;
-`myconsole.log3=function() {return message} myconsole.log3()`
+This means you could log to the console without console.log, by returning a value;
+```myconsole.log3=function() {return message} 
+myconsole.log3()
+```
 
-javacsript functions have 3 methods on them
+javascript functions have 3 methods on them
 call,apply,bind
 `console.dir(console.log)`
 and look in the function prototype
@@ -41,7 +45,10 @@ you can call console.log like this
 the first argument is the execution context of the function
 `console.log.call({},message)`
 context is another word for object or state
-`myconsole.log4=function() {return this.message} myconsole.log4.call({message:"this test"}) let example1={message:"example object"} myconsole.log4.cal(exampleobject)`
+```myconsole.log4=function() {return this.message} 
+myconsole.log4.call({message:"this test"}) 
+let example1={message:"example object"} 
+myconsole.log4.cal(exampleobject)```
 javascript will also soft bind the execution context if you choose not to pass it
 the shorthand sytnax for calling a function does not allow you to pass an an execution context
 `myconsole.log4()`
