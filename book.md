@@ -2,19 +2,22 @@
 
 ### guide
 
-
-`console.log("Hello World")
-let message="Hello World"
+```
+console.log("Hello World")
+let message="Hello World"; 
 console.log(message)
+// or
 let {log} = console
 log(message)
+// or
 let log2 = console.log.bind(console)
 log2(message)
-
+// log is a method on an object
 let myconsole={
 log:function(msg) {console.log(msg)}
 }
-myconsole.log(message)`
+myconsole.log(message)
+```
 
 console.log also print undefined.
 all javascript functions return something.
