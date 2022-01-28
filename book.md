@@ -1,7 +1,9 @@
 # Javascript Book
 
 ### guide
-console.log("Hello World")
+
+
+`console.log("Hello World")
 let message="Hello World"
 console.log(message)
 let {log} = console
@@ -10,9 +12,60 @@ let log2 = console.log.bind(console)
 log2(message)
 
 let myconsole={
-    log:function(msg) {console.log(msg)}
+log:function(msg) {console.log(msg)}
 }
-myconsole.log(message)
+myconsole.log(message)`
+
+console.log also print undefined.
+all javascript functions return something.
+they will return undefined if nothing is specified to be returned;
+it happens that the console also logs return values.
+which is why undefined also shows
+
+if you create a log which returns something, that will show instead.
+`myconsole.log2=function(msg) {console.log(msg); return 42}; myconsole.log2(message)`
+now 42 shows in the console.
+this means you could log to the console without console.log, by returning a value;
+`myconsole.log3=function() {return message} myconsole.log3()`
+
+javacsript functions have 3 methods on them
+call,apply,bind
+`console.dir(console.log)`
+and look in the function prototype
+
+you can call console.log like this
+`console.log.call(null,message)`
+the first argument is the execution context of the function
+`console.log.call({},message)`
+context is another word for object or state
+`myconsole.log4=function() {return this.message} myconsole.log4.call({message:"this test"}) let example1={message:"example object"} myconsole.log4.cal(exampleobject)`
+javascript will also soft bind the execution context if you choose not to pass it
+the shorthand sytnax for calling a function does not allow you to pass an an execution context
+`myconsole.log4()`
+only arguments
+but soft binding would look on the parent object for a message property
+so you could do
+`myconsole.message="from myconsole object" myconsole.log4()`
+myconsole is implicitly passed in as the context.
+
+Another way to override this soft binding behaviour is with bind.
+bind is a method which returns a new function
+`myconsole.log5=myconsole.log4.bind(example1) myconsole.log5()`
+"example object" is logged. Because log5 is a new function with its "this" syntax replaced by "example5"
+natively maybe it now looks like
+`function() {return example1.message}`
+
+sometimes in javascript, you will lose control over how an function gets executed. Javascript is just a scripting language working within a large environment. You will need to work with browser APIs, like addEventListener, which will call your function for you when they are triggered.
+But understanding execution context and how you can set it ahead of time using bind you can avoid the wrong soft binding.
+
+apply is similar to call. but changes the way you pass arguments to the function.
+
+Javascript arrow functions do not have an execution context. if you use 'this' inside of an arrow function, it will be determined by the execution context of the next parent function in scope. ie.
+`myconsole.log6=function() { let cb=() => console.log(this.message) cb() } myconsole.log6()`
+will log the message property on myconsole, because that is the soft binding for log6, even though cb has no soft binding.
+Arrow functions never set the 'this' keyword at all.
+`let example2={message:"example2",log:() => console.log(this.message)}`
+// logs undefined
 
 ### other
 #### git
