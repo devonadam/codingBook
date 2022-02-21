@@ -121,9 +121,21 @@ call,apply,bind
 
 
 innerHTML
+insertAdjacentHTML
 textContent
 previousElementSibling
 nextElementSibling
+
+let nextel=document.createElement('div')
+el.replaceWith(nextel)
+
+childNodes returns a NodeLst which includes HTML elements as well as other nodes like text nodes (e.g. the spaces between the tags).
+
+Element.children returns an HTMLCollection, not a NodeList 
+
+Element.insertAdjacentHTML("afterbegin","<p>My new paragraph</p>")
+"afterbegin":"afterend":"beforebegin":"beforeend";
+
 
 #### Examples
 
@@ -143,21 +155,24 @@ heroicons
 
 ### Testing
 run functions you write first, before publishing them, to check they work
-Jest
+#### Jest
 
 ### Modules
 unfortunately Javascript has different types of module syntax
+
+common-js - require("")
+es modules - import from
 ### Bundling
 Bundlers resolve imports. They can convert one import syntax into another, making nodejs libraries run in the browser, for example. They also integrate with other tools, like transpilers
-Webpack
+#### Webpack
 
 ### Transpiling
-This reads the syntax using an Abstract Syntax Tree and can therefore replace one piece of code with another. Used predominantly for backwards browser compatibility but it is also used for converting JSX into React 
-Babel
+Transpilers read the syntax using an Abstract Syntax Tree and replace one piece of code with another. Used mostly for browser compatibility or converting JSX into React.createElement
+#### Babel
 
 ### Linting
-Its kind of like a spell checker for a word document. If finds syntax errors in the code.
-ESlint
+Its kind of like a spell checker for code. If finds syntax errors.
+#### ESlint
 
 ### Typing
 provides the computer with more information about your code. Catches errors.
@@ -165,6 +180,9 @@ Example is conditional returns (optional types)
 
 ### Documentation
 There are auto generators for documentation
+
+Docusaurus
+JSDoc
 
 ### React
 
